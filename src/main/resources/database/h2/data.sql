@@ -6,7 +6,9 @@ CREATE TABLE users (
     email varchar2(30) primary key,
     nickname varchar2(20) not null,
     password varchar2(20) not null,
-    part number(3),
+--     추후 소속을 나눌 예정
+    part number(3) default 0,
+--     admin 여부 기본값 1, admin 25 예정
     admin number(2) default 1
 );
 

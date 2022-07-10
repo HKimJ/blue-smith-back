@@ -5,19 +5,28 @@ import com.example.blueSmith.user.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService
 {
     final private UserMapper usermapper;
 
-    public void test(String email, String nickname, String password, int grade){
-        UserDto dto = new UserDto();
-        dto.setEmail(email);
-        dto.setNickname(nickname);
-        dto.setPassword(password);
-        dto.setGrade(grade);
+    public void signUp(String email, String nickname, String password, String passwordConfirm){
+        System.out.println(email);
+        System.out.println(nickname);
+        if(!password.equals(passwordConfirm)) {
+            System.out.println("비밀번호가 다름");
+        }
+        else {
+            Map<String, String> signUpmap = new HashMap<String, String>();
+            signUpmap.put("email", email);
+            signUpmap.put("nickname", nickname);
+            signUpmap.put("password", password);
+            usermapper.signUp(signUpmap);
+        }
 
-        usermapper.save(dto);
-    }
+    };
 }

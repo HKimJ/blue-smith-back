@@ -12,6 +12,7 @@ public class UserDto
     private String email;
     private String nickname;
     private String password;
-    private int grade;
+    private int part;
+    private int admin;
 
 }
