@@ -2,5 +2,5 @@ package com.example.blueSmith.user.service;
 
 public interface UserService
 {
-    public void test(String email, String nickname, String password, int grade);
+    public void signUp(String email, String nickname, String password, String passwordConfirm);
 }
