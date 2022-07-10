@@ -14,19 +14,20 @@ public class UserServiceImpl implements UserService
 {
     final private UserMapper usermapper;
 
-    public void signUp(String email, String nickname, String password, String passwordConfirm){
-        System.out.println(email);
-        System.out.println(nickname);
-        if(!password.equals(passwordConfirm)) {
-            System.out.println("비밀번호가 다름");
+    public void signUp(Map<String, Object> result){
+
+        try{
+            if(!result.get("password").equals(result.get("passwordConfirm"))) {
+                System.out.println("비밀번호가 다름");
+            }
+            else {
+                usermapper.signUp(result);
+            }
         }
-        else {
-            Map<String, String> signUpmap = new HashMap<String, String>();
-            signUpmap.put("email", email);
-            signUpmap.put("nickname", nickname);
-            signUpmap.put("password", password);
-            usermapper.signUp(signUpmap);
+        catch(Exception e) {
+            System.out.println(e.toString());
         }
+
 
     };
 }

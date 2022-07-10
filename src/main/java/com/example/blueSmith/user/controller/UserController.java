@@ -3,9 +3,9 @@ package com.example.blueSmith.user.controller;
 import com.example.blueSmith.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
@@ -14,13 +14,12 @@ public class UserController
 {
     final UserService userService;
 
+    @ResponseBody
     @PostMapping("/signUp")
-    public void signUp(@Param("email") String email,
-                       @Param("nickname") String nickname,
-                       @Param("password") String password,
-                       @Param("passwordConfirm") String passwordConfirm)
+    public void signUp(@RequestBody Map<String, Object> map)
     {
-        System.out.println(email);
-        userService.signUp(email, nickname, password, passwordConfirm);
+        Map<String, Object> result = map;
+        userService.signUp(result);
     }
+
 }

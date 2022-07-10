@@ -8,5 +8,5 @@ import java.util.Map;
 @Mapper
 public interface UserMapper
 {
-    void signUp(Map<String, String> signUpmap);
+    void signUp(Map signUpmap);
 }
