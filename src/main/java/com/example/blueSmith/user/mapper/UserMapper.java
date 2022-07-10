@@ -7,4 +7,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface UserMapper
 {
     void save(UserDto userDto);
+    void test();
 }
