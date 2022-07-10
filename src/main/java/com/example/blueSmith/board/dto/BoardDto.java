@@ -14,5 +14,6 @@ public class BoardDto {
     private String title; // 제목
     private String content; // 내용
     private int hitNum; // 조회수
+    private int test;// 테스트 커밋
 
 }
