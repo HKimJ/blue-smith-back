@@ -9,4 +9,5 @@ import java.util.Map;
 public interface UserMapper
 {
     void signUp(Map signUpmap);
+    UserDto signIn(Map signInmap);
 }
