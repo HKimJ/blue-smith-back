@@ -8,4 +8,8 @@
         INSERT INTO users(email, nickname, password)
         values(#{email}, #{nickname}, #{password})
     </insert>
+    <select id="signIn" parameterType="hashmap" resultType="com.example.blueSmith.user.dto.UserDto">
+        SELECT email, nickname from users
+            WHERE (#{email} = email AND #{password} = password)
+    </select>
 </mapper>

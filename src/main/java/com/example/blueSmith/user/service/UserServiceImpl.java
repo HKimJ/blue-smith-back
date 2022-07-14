@@ -27,7 +27,10 @@ public class UserServiceImpl implements UserService
         catch(Exception e) {
             System.out.println(e.toString());
         }
+    };
 
-
+    public UserDto signIn(Map<String, Object> result){
+        UserDto user = usermapper.signIn(result);
+        return user;
     };
 }
