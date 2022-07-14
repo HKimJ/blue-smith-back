@@ -12,9 +12,8 @@ CREATE TABLE users (
     admin number(2) default 1
 );
 
-
 CREATE TABLE board (
-    boardNum number(8) primary key,
+    boardNum number(8) default nextval('board_seq') primary key,
     userId varchar2(20),
     wDate date default LOCALTIMESTAMP(0),
     title varchar2(50),
