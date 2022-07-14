@@ -4,9 +4,9 @@ INSERT INTO users (email, nickname, password, admin)
 
 
 -- board schema
-INSERT INTO board (boardNum, userId, title, content)
-values(NEXT VALUE for BOARD_SEQ, 'JHK1', 'TITLE1', 'CONTENT1');
+INSERT INTO board (userId, title, content)
+values('JHK1', 'TITLE1', 'CONTENT1');
 
-INSERT INTO board (boardNum, userId, title, content)
-values(NEXT VALUE for BOARD_SEQ, 'JHK2', 'TITLE2', 'CONTENT2');
+INSERT INTO board (userId, title, content)
+values('JHK2', 'TITLE2', 'CONTENT2');
 

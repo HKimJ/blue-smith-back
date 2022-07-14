@@ -14,4 +14,23 @@
         hitNum
         from board
     </select>
+
+    <insert id="insertBoard" parameterType="com.example.blueSmith.board.dto.BoardDto">
+        INSERT INTO board
+        (
+        )
+         VALUES (
+         #{idx}
+        ,#{title}
+        ,#{content}
+        ,#{writer}
+        ,0
+        ,IFNULL(#{noticeYn}, 'N')
+        ,IFNULL(#{secretYn}, 'N')
+        ,'N'
+        ,NOW()
+        ,NULL
+        ,NULL
+        )
+    </insert>
 </mapper>
