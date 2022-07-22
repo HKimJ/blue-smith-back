@@ -4,8 +4,11 @@ import com.example.blueSmith.board.dto.BoardDto;
 import com.example.blueSmith.board.mapper.BoardMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Service
@@ -14,21 +17,18 @@ public class BoardServiceImpl implements BoardService {
 
     final private BoardMapper boardMapper;
 
+
     @Override
-    public String getBoardList() {
+    public List<BoardDto> getBoardList() {
         List<BoardDto> allList = boardMapper.getBoardList();
-        String line ="";
-
-        for (BoardDto tmp: allList) {
-            String boardNum = String.valueOf(tmp.getBoardNum());
-            String user = tmp.getUserId();
-            String date = tmp.getWDate();
-            String title = tmp.getTitle();
-            String content = tmp.getContent();
-            String hit = String.valueOf(tmp.getHitNum());
-
-            line = line + "<br>" + boardNum +" " + user +" "+ date +" " + title +" " + content + " " +hit;
-        }
-        return line;
+        return allList;
     }
+
+    @Override
+    public int insertBoard(@RequestBody Map<String, Object> map) {
+        int result = boardMapper.insertBoard();
+        return result;
+    }
+
+
 }

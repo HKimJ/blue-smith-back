@@ -18,19 +18,14 @@
     <insert id="insertBoard" parameterType="com.example.blueSmith.board.dto.BoardDto">
         INSERT INTO board
         (
+         userId,
+         title,
+         content
         )
          VALUES (
-         #{idx}
+         #{userId}
         ,#{title}
         ,#{content}
-        ,#{writer}
-        ,0
-        ,IFNULL(#{noticeYn}, 'N')
-        ,IFNULL(#{secretYn}, 'N')
-        ,'N'
-        ,NOW()
-        ,NULL
-        ,NULL
         )
     </insert>
 </mapper>

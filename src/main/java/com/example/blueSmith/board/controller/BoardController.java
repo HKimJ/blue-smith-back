@@ -5,6 +5,9 @@ import com.example.blueSmith.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.print.attribute.HashAttributeSet;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -17,19 +20,19 @@ public class BoardController {
     final BoardService boardService;
 
     @GetMapping("/allList")
-    public String allList() { // 게시판 글 전체목록 가져오기 테스트
-        String result = boardService.getBoardList();
+    public List<BoardDto> allList() { // 게시판 글 전체목록 가져오기 테스트
+        List<BoardDto> result = boardService.getBoardList();
         return result;
     }
 
-    @PostMapping("/writing")
+    @PostMapping("/write")
     public void write(@RequestBody Map<String, Object> map) {
-
+        int result = boardService.insertBoard(map);
     }
 
-    @GetMapping("/search")
-    public void search() {
-
-    }
+//    @GetMapping("/search")
+//    public void search() {
+//
+//    }
 
 }
