@@ -27,7 +27,9 @@ public class BoardController {
 
     @PostMapping("/write")
     public void write(@RequestBody Map<String, Object> map) {
-        int result = boardService.insertBoard(map);
+        Map<String, Object> result = map;
+        int answer = boardService.insertBoard(map);
+        System.out.println(answer);
     }
 
 //    @GetMapping("/search")
